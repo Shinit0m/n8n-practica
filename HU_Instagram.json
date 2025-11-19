@@ -1,0 +1,376 @@
+{
+  "name": "Test",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "formulario-1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -480,
+        96
+      ],
+      "id": "68c38dc4-be40-4e54-b8f0-00680a723280",
+      "name": "Webhook",
+      "webhookId": "36f59635-7ce9-4657-abff-fba2adb931b5"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        480,
+        832
+      ],
+      "id": "5afd349d-ec13-496b-beaa-2f694f264b41",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        896,
+        832
+      ],
+      "id": "d4bc929f-8c4a-42c8-86ed-a0f10617956d",
+      "name": "Wait",
+      "webhookId": "4d32914a-2c09-4c84-b358-510b4d016c12"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v24.0/17841478311115017/media",
+        "authentication": "genericCredentialType",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "https://www.rainforest-alliance.org/wp-content/uploads/2021/06/capybara-square-1.jpg.optimal.jpg"
+            },
+            {
+              "name": "caption",
+              "value": "Caption de prueba!"
+            },
+            {
+              "name": "access_token",
+              "value": "EAAK2KijVlFMBP6QV20bD7BZAFGeVKVoJ63CUg6i4u3Fjc368GGmax6vudB2evjQhpoipXnd5OTZBPoQxLhcTA2YPkHHe1cWZCH371AoGKS0ztdInKwZAEsW65lJKZCMR7yNfZCArTz64PZCFqat2qplWvL2LyOFPmZAaFt2HmAFZA6jYzjcl3RFFWbg6ZBNcK0fvZCHFS0p"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        688,
+        832
+      ],
+      "id": "3822b18a-03d2-47c2-b119-a6924896054f",
+      "name": "Create Media Container"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v24.0/17841478311115017/media_publish",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "creation_id",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "name": "access_token",
+              "value": "EAAK2KijVlFMBP6QV20bD7BZAFGeVKVoJ63CUg6i4u3Fjc368GGmax6vudB2evjQhpoipXnd5OTZBPoQxLhcTA2YPkHHe1cWZCH371AoGKS0ztdInKwZAEsW65lJKZCMR7yNfZCArTz64PZCFqat2qplWvL2LyOFPmZAaFt2HmAFZA6jYzjcl3RFFWbg6ZBNcK0fvZCHFS0p"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1104,
+        832
+      ],
+      "id": "7c2d1f7f-0f17-41f1-9d35-21937daa6b93",
+      "name": "Publish Media Container"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        256,
+        112
+      ],
+      "id": "d0dfb7cd-f242-4cbb-97d7-28a4476e8dc0",
+      "name": "Wait 5 Sec",
+      "webhookId": "4d32914a-2c09-4c84-b358-510b4d016c12"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v24.0/17841478311115017/media_publish",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "creation_id",
+              "value": "={{ $('Create Media Container - IG - Imagen').item.json.id }}"
+            },
+            {
+              "name": "access_token",
+              "value": "EAAK2KijVlFMBP6QV20bD7BZAFGeVKVoJ63CUg6i4u3Fjc368GGmax6vudB2evjQhpoipXnd5OTZBPoQxLhcTA2YPkHHe1cWZCH371AoGKS0ztdInKwZAEsW65lJKZCMR7yNfZCArTz64PZCFqat2qplWvL2LyOFPmZAaFt2HmAFZA6jYzjcl3RFFWbg6ZBNcK0fvZCHFS0p"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        480,
+        112
+      ],
+      "id": "30a62687-1fb2-4e23-a457-c0ace44a604f",
+      "name": "Publish Media Container - IG"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.TipoArchivo }}",
+                    "rightValue": "Imagen",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "d1156cbf-4d9c-4363-901b-d9e76d4ef1b9"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Imagen"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4ae9a66a-b065-4b5f-ae95-84df481741cf",
+                    "leftValue": "={{ $json.body.TipoArchivo }}",
+                    "rightValue": "Video",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Video"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -240,
+        96
+      ],
+      "id": "597cdaaf-876d-4000-8a86-59be9f6b3ab7",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v24.0/17841478311115017/media",
+        "authentication": "genericCredentialType",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "={{ $json.body.ArchivosAdjuntos }}"
+            },
+            {
+              "name": "caption",
+              "value": "={{ $json.body.DescripcionBreve }}"
+            },
+            {
+              "name": "access_token",
+              "value": "EAAK2KijVlFMBP6QV20bD7BZAFGeVKVoJ63CUg6i4u3Fjc368GGmax6vudB2evjQhpoipXnd5OTZBPoQxLhcTA2YPkHHe1cWZCH371AoGKS0ztdInKwZAEsW65lJKZCMR7yNfZCArTz64PZCFqat2qplWvL2LyOFPmZAaFt2HmAFZA6jYzjcl3RFFWbg6ZBNcK0fvZCHFS0p"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a358b9ff-f8f8-4af4-833b-a0fc8e365aa7",
+      "name": "Create Media Container - IG - Imagen"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v24.0/17841478311115017/media",
+        "authentication": "genericCredentialType",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "media_type",
+              "value": "VIDEO"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        0,
+        208
+      ],
+      "id": "a5c8ab9f-964e-4b3b-8f3e-6c55ed6e7bf8",
+      "name": "Create Media Container - IG - Video"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Create Media Container",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Media Container": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Publish Media Container",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 5 Sec": {
+      "main": [
+        [
+          {
+            "node": "Publish Media Container - IG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Create Media Container - IG - Imagen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Media Container - IG - Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Media Container - IG - Imagen": {
+      "main": [
+        [
+          {
+            "node": "Wait 5 Sec",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Media Container - IG - Video": {
+      "main": [
+        [
+          {
+            "node": "Wait 5 Sec",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "58dcfe85-214a-47ff-a504-79c83b8fab3f",
+  "meta": {
+    "instanceId": "d554dd54ec12d615223aee35f7867e5c3869f50323e073b288f0b9813461c4df"
+  },
+  "id": "68CO1gZUmj3OryJP",
+  "tags": []
+}
