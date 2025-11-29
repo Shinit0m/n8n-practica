@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Actividad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen py-8">
+    <div class="container mx-auto px-4 max-w-3xl">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+                <i class="fas fa-calendar-alt mr-2 text-blue-600"></i>
+                Registro de Actividad
+            </h1>
+            
+            <form id="activityForm" class="space-y-6">
+                <!-- Título de la actividad -->
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-heading mr-2 text-blue-500"></i>
+                        Título de la actividad <span class="text-red-500">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="title" 
+                        name="title" 
+                        required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                        placeholder="Ej: Conferencia de Inteligencia Artificial"
+                    >
+                    <span class="text-red-500 text-sm hidden" id="titleError"></span>
+                </div>
+
+                <!-- Descripción breve -->
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-align-left mr-2 text-blue-500"></i>
+                        Descripción breve <span class="text-red-500">*</span>
+                    </label>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        rows="4"
+                        required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 resize-none"
+                        placeholder="Describe brevemente la actividad..."
+                    ></textarea>
+                    <span class="text-red-500 text-sm hidden" id="descriptionError"></span>
+                </div>
+
+                <!-- Carrera responsable -->
+                <div>
+                    <label for="career" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-graduation-cap mr-2 text-blue-500"></i>
+                        Carrera responsable <span class="text-red-500">*</span>
+                    </label>
+                    <select 
+                        id="career" 
+                        name="career" 
+                        required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 bg-white"
+                    >
+                        <option value="">Seleccione una carrera</option>
+                        <option value="ingenieria-sistemas">Ingeniería en Sistemas</option>
+                        <option value="ingenieria-software">Ingeniería de Software</option>
+                        <option value="ciencias-computacion">Ciencias de la Computación</option>
+                        <option value="ingenieria-informatica">Ingeniería Informática</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                    <input 
+                        type="text" 
+                        id="careerOther" 
+                        name="careerOther" 
+                        placeholder="Especifique otra carrera"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 mt-2 hidden"
+                    >
+                    <span class="text-red-500 text-sm hidden" id="careerError"></span>
+                </div>
+
+                <!-- Fecha y lugar -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-calendar mr-2 text-blue-500"></i>
+                            Fecha <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="date" 
+                            id="date" 
+                            name="date" 
+                            required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                        >
+                        <span class="text-red-500 text-sm hidden" id="dateError"></span>
+                    </div>
+                    <div>
+                        <label for="location" class="block text-sm font-medium text-gray-700 mb-2">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            Lugar <span class="text-red-500">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="location" 
+                            name="location" 
+                            required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                            placeholder="Ej: Auditorio Principal"
+                        >
+                        <span class="text-red-500 text-sm hidden" id="locationError"></span>
+                    </div>
+                </div>
+
+                <!-- Imágenes o videos adjuntos -->
+                <div>
+                    <label for="attachments" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-paperclip mr-2 text-blue-500"></i>
+                        Imágenes o videos adjuntos
+                    </label>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition duration-200">
+                        <input 
+                            type="file" 
+                            id="attachments" 
+                            name="attachments" 
+                            multiple
+                            accept="image/*,video/*"
+                            class="hidden"
+                        >
+                        <div id="fileInputArea" class="cursor-pointer">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-600 mb-1">Haz clic para seleccionar archivos</p>
+                            <p class="text-sm text-gray-500">Imágenes (JPG, PNG, GIF) o Videos (MP4, AVI, MOV)</p>
+                        </div>
+                        <div id="fileList" class="mt-4 space-y-2 hidden"></div>
+                    </div>
+                    <span class="text-red-500 text-sm hidden" id="attachmentsError"></span>
+                </div>
+
+                <!-- Enlace adicional -->
+                <div>
+                    <label for="additionalLink" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-link mr-2 text-blue-500"></i>
+                        Enlace adicional
+                    </label>
+                    <div class="flex items-center space-x-2">
+                        <select 
+                            id="linkType" 
+                            name="linkType"
+                            class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 bg-white"
+                        >
+                            <option value="inscripcion">Formulario de inscripción</option>
+                            <option value="nota">Nota completa</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <input 
+                            type="url" 
+                            id="additionalLink" 
+                            name="additionalLink" 
+                            class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                            placeholder="https://ejemplo.com"
+                        >
+                    </div>
+                    <span class="text-red-500 text-sm hidden" id="linkError"></span>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button 
+                        type="submit" 
+                        class="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 shadow-md"
+                    >
+                        <i class="fas fa-save mr-2"></i>
+                        Guardar Actividad
+                    </button>
+                    <button 
+                        type="button" 
+                        id="resetBtn"
+                        class="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200"
+                    >
+                        <i class="fas fa-redo mr-2"></i>
+                        Limpiar Formulario
+                    </button>
+                </div>
+            </form>
+
+            <!-- Área de vista previa/resumen -->
+            <div id="preview" class="mt-8 hidden">
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-eye mr-2 text-blue-600"></i>
+                        Vista Previa
+                    </h2>
+                    <div id="previewContent" class="space-y-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
