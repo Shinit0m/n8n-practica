@@ -3,16 +3,30 @@
   "nodes": [
     {
       "parameters": {
+        "content": "Facebook\n\nKEY\nEAAvHmOdp5ZCwBP26EtivpGjd6Po6ExL6seseBZC2MoS69qn9hNZClS7fOkozzZBYi7fBc0bQSYifgBZB1aPif4AZChb8KcFEygOjbc6I3ZBbsUXCY4WSjBMhQ0Tgyz581Tbvp3DH76sQrOgwT8d6sMxGL1qaLLDBBZBETjt08caD64XNQ6ej0VbjntQbnAcHRvKwFvsxPRzZCnboF03HC",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1344,
+        2656
+      ],
+      "typeVersion": 1,
+      "id": "de19ac67-89c0-486b-865e-5f06dba5cb70",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
         "numberInputs": 4
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        1104,
-        400
+        1632,
+        3072
       ],
-      "id": "35118274-047a-4353-b4a0-6ac34bb7f07a",
-      "name": "Merge"
+      "id": "ea2f1975-b597-4897-9a33-d18aee6bc25f",
+      "name": "Merge1"
     },
     {
       "parameters": {
@@ -23,16 +37,15 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -848,
-        432
+        -1280,
+        2912
       ],
-      "id": "76124b82-cfa0-4529-b8c3-cc981f26f174",
-      "name": "Webhook1",
+      "id": "201dab76-2b7f-481e-b1db-2e2e37fc1223",
+      "name": "Webhook",
       "webhookId": "8b063ac8-05d6-43d5-9154-7001996d4d94"
     },
     {
       "parameters": {
-        "authentication": "serviceAccount",
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
@@ -51,14 +64,14 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "TituloActividad": "={{ $('Agregar el ID en las respuestas1').item.json.body.TituloActividad }}",
-            "ID_Registro": "={{ $('Agregar el ID en las respuestas1').item.json.ID_Registro }}",
-            "Responsable": "={{ $('Agregar el ID en las respuestas1').item.json.body.Responsable }}",
-            "FechaLugar": "={{ $('Agregar el ID en las respuestas1').item.json.body.FechaLugar }}",
-            "DescripcionBreve": "={{ $('Agregar el ID en las respuestas1').item.json.body.DescripcionBreve }}",
-            "ArchivosAdjuntos": "={{ $('Agregar el ID en las respuestas1').item.json.body.ArchivosAdjuntos }}",
-            "EnlaceAdicional": "={{ $('Agregar el ID en las respuestas1').item.json.body.EnlaceAdicional }}",
-            "CanalesDifusion": "={{ $('Agregar el ID en las respuestas1').item.json.body.CanalesDifusion }}",
+            "TituloActividad": "={{ $('Agregar el ID en las respuestas').item.json.body.TituloActividad }}",
+            "ID_Registro": "={{ $('Agregar el ID en las respuestas').item.json.ID_Registro }}",
+            "Responsable": "={{ $('Agregar el ID en las respuestas').item.json.body.Responsable }}",
+            "FechaLugar": "={{ $('Agregar el ID en las respuestas').item.json.body.FechaLugar }}",
+            "DescripcionBreve": "={{ $('Agregar el ID en las respuestas').item.json.body.DescripcionBreve }}",
+            "ArchivosAdjuntos": "={{ $('Agregar el ID en las respuestas').item.json.body.ArchivosAdjuntos }}",
+            "EnlaceAdicional": "={{ $('Agregar el ID en las respuestas').item.json.body.EnlaceAdicional }}",
+            "CanalesDifusion": "={{ $('Agregar el ID en las respuestas').item.json.body.CanalesDifusion }}",
             "LinkFacebook": "={{ $json.LinkFacebook }}"
           },
           "matchingColumns": [
@@ -166,11 +179,17 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        1312,
-        400
+        1952,
+        3104
       ],
-      "id": "ba0685a7-6764-4356-a1f7-804a8f14e6f2",
-      "name": "Append or update row in sheet1"
+      "id": "f9bc4f37-004d-43d8-aded-1b9b97f75e76",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "1cI0NeGoaPCZAc1y",
+          "name": "Google Sheets account"
+        }
+      }
     },
     {
       "parameters": {
@@ -211,7 +230,7 @@
                   {
                     "id": "4ed5f5e4-e09d-4f11-90d2-6d41a4767292",
                     "leftValue": "={{ $json.body.CanalesDifusion }}",
-                    "rightValue": "=Twitter(X)",
+                    "rightValue": "=Twitter(x)",
                     "operator": {
                       "type": "string",
                       "operation": "contains"
@@ -273,11 +292,11 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.3,
       "position": [
-        -320,
-        416
+        -848,
+        2880
       ],
-      "id": "9219d864-c338-432d-b8b6-b5cae7f2c74c",
-      "name": "Switch1"
+      "id": "2b9e4d5b-0914-48e0-839d-daa612312cda",
+      "name": "Switch4"
     },
     {
       "parameters": {
@@ -297,11 +316,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -624,
-        432
+        -1056,
+        2912
       ],
-      "id": "38c05dae-eea3-4087-a3ea-8b089b3a8c60",
-      "name": "Agregar el ID en las respuestas1"
+      "id": "848fe36f-fba5-47fe-b114-76e36a4900b9",
+      "name": "Agregar el ID en las respuestas"
     },
     {
       "parameters": {
@@ -314,11 +333,11 @@
             "parameter": [
               {
                 "name": "url",
-                "value": "={{ $json.body.ArchivosAdjuntos }}"
+                "value": "={{ $json.body.additionalLink }}"
               },
               {
                 "name": "caption",
-                "value": "={{ $json.body.DescripcionBreve }} Más Informacion: {{ $json.body.EnlaceAdicional }}"
+                "value": "={{ $json.body.description }}Más Informacion: {{ $json.body.additionalLink }}"
               }
             ]
           }
@@ -327,13 +346,19 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        16,
-        -32
+        -320,
+        2464
       ],
-      "id": "b0d49efd-5b94-4938-b74e-7b2eca6a394c",
-      "name": "Facebook Graph API",
+      "id": "9df4aa71-5a0a-47a1-937a-9ad5f1ff287c",
+      "name": "Facebook Graph API1",
       "retryOnFail": false,
       "alwaysOutputData": false,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "HZkwtJxdudbdJdXm",
+          "name": "Facebook Graph account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -343,19 +368,19 @@
             {
               "id": "291d2ad0-b425-4ba9-ba7c-1e94f0549949",
               "name": "AsuntoEmail",
-              "value": "=Fallo en Publicacion: {{ $('Switch').item.json.body.TituloActividad }}",
+              "value": "=Fallo en Publicacion: {{ $('Switch8').item.json.body.TituloActividad }}",
               "type": "string"
             },
             {
               "id": "d3325151-012b-49e2-9117-29fe12ad053a",
               "name": "EmailResponsable",
-              "value": "={{ $('Switch').item.json.body.Responsable }}",
+              "value": "={{ $('Switch8').item.json.body.Responsable }}",
               "type": "string"
             },
             {
               "id": "623c6ffc-b1bd-45be-945a-85c0c995b86d",
               "name": "CuerpoError",
-              "value": "=Error: {{ $('Facebook Graph API').item.json.headers['www-authenticate'] }}",
+              "value": "=Error: {{ $('Facebook Graph API1').item.json.headers['www-authenticate'] }}",
               "type": "string"
             }
           ]
@@ -365,15 +390,14 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        400,
-        48
+        160,
+        2624
       ],
-      "id": "307c0e31-0808-43f4-ac85-cb7540f36619",
-      "name": "Edit Fields1"
+      "id": "57f58a35-2a4a-46f8-ac75-2eef1bdd4f10",
+      "name": "Edit Fields"
     },
     {
       "parameters": {
-        "authentication": "serviceAccount",
         "sendTo": "={{ $json.EmailResponsable }}",
         "subject": "={{ $json.AsuntoEmail }}",
         "message": "=<h3>ALERTA: FALLO CRÍTICO EN AGENTE DIFUSOR</h3>  <p>El Agente Automatizado falló al intentar publicar la siguiente actividad en Facebook. Se requiere una acción manual:</p>  <table border=\"1\" cellpadding=\"5\" cellspacing=\"0\">     <tr><td><b>Actividad:</b></td><td>{{ $('Agregar el ID en las respuestas').item.json.body.TituloActividad }}</td></tr>     <tr><td><b>ID de Registro:</b></td><td>{{ $('Agregar el ID en las respuestas').item.json.ID_Registro }}</td></tr>     <tr><td><b>Responsable:</b></td><td>{{ $json.EmailResponsable }}</td></tr> </table>  <hr>  <p><b>Motivo del Fallo Técnico:</b><br> <span style=\"color: red;\">{{$json.CuerpoError}}</span></p>  <p><i>Por favor, revise la vigencia del Token de Acceso de la página de Facebook.</i></p>",
@@ -381,191 +405,196 @@
       },
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
+      "position": [
+        560,
+        2624
+      ],
+      "id": "5bca9ed8-09e9-409b-9c19-6ea23fc4364b",
+      "name": "Send a message3",
+      "webhookId": "07845977-6471-4ce7-9b24-3f17c98e859d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DYj1RD57WlvKEGJH",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8c5fe578-f138-4685-84a0-75fd32c37d82",
+              "name": "LinkFacebook",
+              "value": "=https://www.facebook.com/82028114513846/posts/{{$json.id}}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        2448
+      ],
+      "id": "38b58936-6cc7-494f-aecd-32e1a368775c",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.post_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    },
+                    "id": "6d96b311-906f-4f5b-aac9-6ebcba3e48d2"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c179515a-1da1-4a83-9ad6-4b4071d6a20d",
+                    "leftValue": "={{ $json.post_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -32,
+        2464
+      ],
+      "id": "f02a4702-88aa-47e2-bf1b-a8bee766a252",
+      "name": "Switch5"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    },
+                    "id": "6d96b311-906f-4f5b-aac9-6ebcba3e48d2"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c179515a-1da1-4a83-9ad6-4b4071d6a20d",
+                    "leftValue": "={{ $json.id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -16,
+        2896
+      ],
+      "id": "c3c600bc-99ff-4bea-b1b3-bda3e93e1fcf",
+      "name": "Switch7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8c5fe578-f138-4685-84a0-75fd32c37d82",
+              "name": "LinkFacebook",
+              "value": "=https://www.facebook.com/82028114513846/posts/{{$json.id}}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
       "position": [
         576,
-        48
+        2880
       ],
-      "id": "eead1332-72d2-4979-b968-39d7f55d83b4",
-      "name": "Send a message",
-      "webhookId": "07845977-6471-4ce7-9b24-3f17c98e859d"
+      "id": "fdb242e1-9bba-4e63-b31a-c2c9d423d5a3",
+      "name": "Edit Fields7"
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "8c5fe578-f138-4685-84a0-75fd32c37d82",
-              "name": "LinkFacebook",
-              "value": "=https://www.facebook.com/82028114513846/posts/{{$json.id}}",
-              "type": "string"
-            }
-          ]
-        },
-        "includeOtherFields": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        592,
-        -144
-      ],
-      "id": "65af0a51-bb85-49c5-824f-86843feb33a8",
-      "name": "Edit Fields2"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.post_id }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notEmpty",
-                      "singleValue": true
-                    },
-                    "id": "6d96b311-906f-4f5b-aac9-6ebcba3e48d2"
-                  }
-                ],
-                "combinator": "and"
-              }
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c179515a-1da1-4a83-9ad6-4b4071d6a20d",
-                    "leftValue": "={{ $json.post_id }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notExists",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              }
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.3,
-      "position": [
-        192,
-        -32
-      ],
-      "id": "3ef8b34c-e306-45c9-9780-98ea10b3f520",
-      "name": "Switch2"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.post_id }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notEmpty",
-                      "singleValue": true
-                    },
-                    "id": "6d96b311-906f-4f5b-aac9-6ebcba3e48d2"
-                  }
-                ],
-                "combinator": "and"
-              }
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "c179515a-1da1-4a83-9ad6-4b4071d6a20d",
-                    "leftValue": "={{ $json.post_id }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notExists",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              }
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.3,
-      "position": [
-        288,
-        224
-      ],
-      "id": "01f877f5-50cd-48d8-b543-4537a40bf992",
-      "name": "Switch3"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "8c5fe578-f138-4685-84a0-75fd32c37d82",
-              "name": "LinkFacebook",
-              "value": "=https://www.facebook.com/82028114513846/posts/{{$json.id}}",
-              "type": "string"
-            }
-          ]
-        },
-        "includeOtherFields": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        672,
-        208
-      ],
-      "id": "b471dd4f-1e04-4179-8bac-ee69b29b7508",
-      "name": "Edit Fields4"
-    },
-    {
-      "parameters": {
-        "authentication": "serviceAccount",
         "sendTo": "={{ $json.EmailResponsable }}",
         "subject": "={{ $json.AsuntoEmail }}",
         "message": "=<h3>ALERTA: FALLO CRÍTICO EN AGENTE DIFUSOR</h3>  <p>El Agente Automatizado falló al intentar publicar la siguiente actividad en Facebook. Se requiere una acción manual:</p>  <table border=\"1\" cellpadding=\"5\" cellspacing=\"0\">     <tr><td><b>Actividad:</b></td><td>{{ $('Agregar el ID en las respuestas').item.json.body.TituloActividad }}</td></tr>     <tr><td><b>ID de Registro:</b></td><td>{{ $('Agregar el ID en las respuestas').item.json.ID_Registro }}</td></tr>     <tr><td><b>Responsable:</b></td><td>{{ $json.EmailResponsable }}</td></tr> </table>  <hr>  <p><b>Motivo del Fallo Técnico:</b><br> <span style=\"color: red;\">{{$json.CuerpoError}}</span></p>  <p><i>Por favor, revise la vigencia del Token de Acceso de la página de Facebook.</i></p>",
@@ -574,12 +603,18 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        672,
-        400
+        656,
+        3056
       ],
-      "id": "24ab9ae5-de73-4ae1-9da3-8af37080265e",
-      "name": "Send a message1",
-      "webhookId": "07845977-6471-4ce7-9b24-3f17c98e859d"
+      "id": "675da989-7aff-4316-9128-e2cbd4ca6daf",
+      "name": "Send a message5",
+      "webhookId": "07845977-6471-4ce7-9b24-3f17c98e859d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DYj1RD57WlvKEGJH",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
@@ -588,19 +623,19 @@
             {
               "id": "291d2ad0-b425-4ba9-ba7c-1e94f0549949",
               "name": "AsuntoEmail",
-              "value": "=Fallo en Publicacion: {{ $('Switch').item.json.body.TituloActividad }}",
+              "value": "=Fallo en Publicacion: {{ $('Switch8').item.json.body.TituloActividad }}",
               "type": "string"
             },
             {
               "id": "d3325151-012b-49e2-9117-29fe12ad053a",
               "name": "EmailResponsable",
-              "value": "={{ $('Switch').item.json.body.Responsable }}",
+              "value": "={{ $('Switch8').item.json.body.Responsable }}",
               "type": "string"
             },
             {
               "id": "623c6ffc-b1bd-45be-945a-85c0c995b86d",
               "name": "CuerpoError",
-              "value": "=Error: {{ $('Facebook Graph API').item.json.headers['www-authenticate'] }}",
+              "value": "=Error: {{ $('Facebook Graph API1').item.json.headers['www-authenticate'] }}",
               "type": "string"
             }
           ]
@@ -610,36 +645,44 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        464,
-        400
+        240,
+        3056
       ],
-      "id": "35ffcef3-9941-4fa5-99e3-ad43b4280059",
-      "name": "Edit Fields3"
+      "id": "91c25ad5-2b3c-4df7-a4f4-768509f31aa6",
+      "name": "Edit Fields8"
     },
     {
       "parameters": {
-        "text": "{{ $json.body.Titulo}}\n{{ $json.body.Descripcion.Breve }}",
+        "text": "={{\n(\n  ($json.body.title || '') + ' — ' +\n  ($json.body.description || '') + '\\n' +\n  ($json.body.date || '') + '\\n' +\n  (\n    $json.body.additionalLink || '') + '\\n'\n).slice(0, 280)\n}}\n",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.twitter",
       "typeVersion": 2,
       "position": [
-        32,
-        224
+        -320,
+        2912
       ],
-      "id": "6976798d-ee91-4101-82bb-c09e5df3872d",
-      "name": "Create Tweet"
+      "id": "8a44d9c5-554a-4467-81e8-31f6abbabbbf",
+      "name": "Create Tweet1",
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "50VsgKssjbZokxA3",
+          "name": "X account"
+        }
+      }
     },
     {
-      "parameters": {},
+      "parameters": {
+        "amount": 3
+      },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        480,
-        592
+        320,
+        3376
       ],
-      "id": "39da6560-eec4-4b1f-a304-dd58e6e4f883",
-      "name": "Wait 5 Sec",
+      "id": "c5ed9862-ed93-4950-8fea-a00766a191ae",
+      "name": "Wait 5 Sec1",
       "webhookId": "4d32914a-2c09-4c84-b358-510b4d016c12"
     },
     {
@@ -656,8 +699,8 @@
                 },
                 "conditions": [
                   {
-                    "leftValue": "={{ $json.body.TipoArchivo }}",
-                    "rightValue": "Imagen",
+                    "leftValue": "={{ $json.body.file_0_type }}",
+                    "rightValue": "image",
                     "operator": {
                       "type": "string",
                       "operation": "contains"
@@ -681,8 +724,8 @@
                 "conditions": [
                   {
                     "id": "4ae9a66a-b065-4b5f-ae95-84df481741cf",
-                    "leftValue": "={{ $json.body.TipoArchivo }}",
-                    "rightValue": "Video",
+                    "leftValue": "={{ $json.body.file_0_type }}",
+                    "rightValue": "video",
                     "operator": {
                       "type": "string",
                       "operation": "contains"
@@ -701,11 +744,11 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.3,
       "position": [
-        48,
-        592
+        -320,
+        3360
       ],
-      "id": "84ea21f1-4485-4d91-94f7-f9a590f74511",
-      "name": "Switch"
+      "id": "1f9d4d20-c30c-486b-a2bb-11901cc79d13",
+      "name": "Switch8"
     },
     {
       "parameters": {
@@ -734,11 +777,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        240,
-        496
+        -64,
+        3232
       ],
-      "id": "b3eb161d-3b00-4370-9ba5-339d86d72da4",
-      "name": "Create Media Container - IG - Imagen1"
+      "id": "e149b942-c4f9-47e4-ba6f-a9cd09e40635",
+      "name": "Create Media Container - IG - Imagen"
     },
     {
       "parameters": {
@@ -759,11 +802,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        240,
-        688
+        -64,
+        3456
       ],
-      "id": "b04b0bc3-085a-4627-896f-2a3974119660",
-      "name": "Create Media Container - IG - Video1"
+      "id": "0724c0b4-4cda-4073-85fa-1579ef773d02",
+      "name": "Create Media Container - IG - Video"
     },
     {
       "parameters": {
@@ -787,11 +830,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        688,
-        592
+        672,
+        3376
       ],
-      "id": "244ed790-c8dd-4ee5-bc36-0ae33cd28a0a",
-      "name": "HTTP Request"
+      "id": "a655e584-f460-4165-b6c3-e5912752941a",
+      "name": "HTTP Request1"
     },
     {
       "parameters": {
@@ -803,12 +846,18 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        880,
-        944
+        1168,
+        3824
       ],
-      "id": "bba28d05-a9f7-4547-aa9c-ed4185b0b70a",
-      "name": "Send a message2",
-      "webhookId": "07845977-6471-4ce7-9b24-3f17c98e859d"
+      "id": "23fcd0f8-206e-42af-9ca1-3e6a4e706020",
+      "name": "Send a message6",
+      "webhookId": "07845977-6471-4ce7-9b24-3f17c98e859d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DYj1RD57WlvKEGJH",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
@@ -820,12 +869,18 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        288,
-        896
+        176,
+        3808
       ],
-      "id": "0ce3e5ca-9e82-47cf-ad5b-243443012ae8",
-      "name": "Send a message4",
-      "webhookId": "779d2e50-9a40-44df-84a0-f84f18253b02"
+      "id": "3e5ad82d-7e2c-4a80-9f78-f807345706b1",
+      "name": "Send a message7",
+      "webhookId": "779d2e50-9a40-44df-84a0-f84f18253b02",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "DYj1RD57WlvKEGJH",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
@@ -884,11 +939,11 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.3,
       "position": [
-        544,
-        896
+        640,
+        3808
       ],
-      "id": "3dca7f7d-4632-4b64-85a4-1c6dcd4af3a1",
-      "name": "Switch6"
+      "id": "734646c5-c2cd-4659-af54-b79903dd6093",
+      "name": "Switch9"
     },
     {
       "parameters": {
@@ -919,11 +974,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        720,
-        944
+        944,
+        3824
       ],
-      "id": "b70d2659-8505-4b81-939d-ede8e2df03ba",
-      "name": "Edit Fields6"
+      "id": "d65378ae-bee5-4cd7-9b7f-02b8c0a006a2",
+      "name": "Edit Fields9"
     },
     {
       "parameters": {
@@ -935,7 +990,7 @@
         "messages": {
           "values": [
             {
-              "content": "Escribe un Articulo para postear en una pagina web de noticias \ninstitucional usando la siguiente informacion.\nEl Titulo de la actividad es: \"Título de la Actividad\"\nLa carrera responsable es:\"Carrera Responsable\"\nLa fecha y lugar es:\"Fecha y Lugar\"\nLa descripcion de la actividad es : \"Descripción\"\nAdjuntar la siguiente URL: \"URL Imagen/Video Adjunto\""
+              "content": "=Escribe un Articulo para postear en una pagina web de noticias \ninstitucional usando la siguiente informacion.\nEl Titulo de la actividad es: \"Título de la Actividad\"\nLa carrera responsable es:\"Carrera Responsable\"\nLa fecha y lugar es:\"Fecha y Lugar\"\nLa descripcion de la actividad es : \"Descripción\"\nAdjuntar la siguiente URL: \"URL Imagen/Video Adjunto\""
             }
           ]
         },
@@ -944,294 +999,304 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        -64,
-        896
+        -480,
+        3808
       ],
-      "id": "1e561d1e-b17e-47b7-976c-30e34c567f33",
-      "name": "Message a model1"
+      "id": "f45ac962-31e4-4481-8b9e-947f606f9271",
+      "name": "Message a model",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "Client ID Twitter\nRThXa0hHbHRJaGRtdWNnZ2lhZm86MTpjaQ\nKEY\n2sm3vVRDzin1npRZWdE1_miwu9HcyShKV4hBoXKct48F1uvwhK",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1088,
+        2656
+      ],
+      "typeVersion": 1,
+      "id": "5f447247-d40a-4e76-9872-22415c647680",
+      "name": "Sticky Note2"
     }
   ],
   "pinData": {},
   "connections": {
-    "Merge": {
+    "Merge1": {
       "main": [
         [
           {
-            "node": "Append or update row in sheet1",
+            "node": "Append or update row in sheet",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Webhook1": {
+    "Webhook": {
       "main": [
         [
           {
-            "node": "Agregar el ID en las respuestas1",
+            "node": "Agregar el ID en las respuestas",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Switch1": {
+    "Switch4": {
       "main": [
         [
           {
-            "node": "Facebook Graph API",
+            "node": "Facebook Graph API1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Create Tweet",
+            "node": "Create Tweet1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Switch",
+            "node": "Switch8",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Message a model1",
+            "node": "Message a model",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Agregar el ID en las respuestas1": {
+    "Agregar el ID en las respuestas": {
       "main": [
         [
           {
-            "node": "Switch1",
+            "node": "Switch4",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Facebook Graph API": {
+    "Facebook Graph API1": {
       "main": [
         [
           {
-            "node": "Switch2",
+            "node": "Switch5",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields1": {
+    "Edit Fields": {
       "main": [
         [
           {
-            "node": "Send a message",
+            "node": "Send a message3",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields2": {
+    "Edit Fields5": {
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Merge1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Switch2": {
+    "Switch5": {
       "main": [
         [
           {
-            "node": "Edit Fields2",
+            "node": "Edit Fields5",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Edit Fields1",
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Switch3": {
+    "Switch7": {
       "main": [
         [
           {
-            "node": "Edit Fields4",
+            "node": "Edit Fields7",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Edit Fields3",
+            "node": "Edit Fields8",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields4": {
+    "Edit Fields7": {
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Merge1",
             "type": "main",
             "index": 1
           }
         ]
       ]
     },
-    "Edit Fields3": {
+    "Edit Fields8": {
       "main": [
         [
           {
-            "node": "Send a message1",
+            "node": "Send a message5",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Create Tweet": {
+    "Create Tweet1": {
       "main": [
         [
           {
-            "node": "Switch3",
+            "node": "Switch7",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Switch": {
+    "Wait 5 Sec1": {
       "main": [
         [
           {
-            "node": "Create Media Container - IG - Imagen1",
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch8": {
+      "main": [
+        [
+          {
+            "node": "Create Media Container - IG - Imagen",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Create Media Container - IG - Video1",
+            "node": "Create Media Container - IG - Video",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Create Media Container - IG - Imagen1": {
+    "Create Media Container - IG - Imagen": {
       "main": [
         [
           {
-            "node": "Wait 5 Sec",
+            "node": "Wait 5 Sec1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Create Media Container - IG - Video1": {
+    "Create Media Container - IG - Video": {
       "main": [
         [
           {
-            "node": "Wait 5 Sec",
+            "node": "Wait 5 Sec1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Wait 5 Sec": {
+    "HTTP Request1": {
       "main": [
         [
           {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request": {
-      "main": [
-        [
-          {
-            "node": "Merge",
+            "node": "Merge1",
             "type": "main",
             "index": 2
           }
         ]
       ]
     },
-    "Send a message4": {
+    "Send a message7": {
       "main": [
         [
           {
-            "node": "Switch6",
+            "node": "Switch9",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Switch6": {
+    "Switch9": {
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Merge1",
             "type": "main",
             "index": 3
           }
         ],
         [
           {
-            "node": "Edit Fields6",
+            "node": "Edit Fields9",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Message a model1": {
+    "Edit Fields9": {
       "main": [
         [
           {
-            "node": "Send a message4",
+            "node": "Send a message6",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Send a message2": {
-      "main": [
-        []
-      ]
-    },
-    "Edit Fields6": {
+    "Message a model": {
       "main": [
         [
           {
-            "node": "Send a message2",
+            "node": "Send a message7",
             "type": "main",
             "index": 0
           }
@@ -1239,11 +1304,11 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "1fc7c59a-6bb0-4562-9421-d8f9a0448d3e",
+  "versionId": "20a916ff-5412-471a-becd-00479d49014c",
   "meta": {
     "instanceId": "81a61bd715d0eeefbee3481fb6931f872310283f3e19b75b85ef6628f9903a89"
   },
